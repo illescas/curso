@@ -1,35 +1,37 @@
-<%= form_for(@pin) do |f| %>
-  <% if @pin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
+<%= form_for@pin, html:{multipart:true} do |f| %>
+<% if @pin.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
 
-      <ul>
-      <% @pin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @pin.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :name, "Nombre" %><br>
-    <%= f.text_field :name %>
-  </div>
+<div class="field">
+  <%= f.label :name, "Nombre" %><br>
+  <%= f.text_field :name %>
+</div>
 
-  <div class="field">
-    <%= f.label :photo, "Foto" %><br>
-    <%= f.text_field :photo, :placeholder => "url de la Foto" %>
-  </div>
-  <div class="field">
-    <%= f.label :description, "Descripción" %><br>
-    <%= f.text_area :description %>
-
-  </div>
+<div class="field">
+  <%= f.label :image %><br>
+  <%= f.file_field :image %>
+</div>
 
 
- 
+<div class="field">
+  <%= f.label :description, "Descripción" %><br>
+  <%= f.text_area :description %>
 
-  <div class="actions">
-    <%= f.submit "crear" %>
-  </div>
+</div>
+
+
+
+
+<div class="actions">
+  <%= f.submit "crear" %>
+</div>
 <% end %>
