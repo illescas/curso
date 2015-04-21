@@ -15,7 +15,7 @@
 		<% @pins.each do |pin| %>
 		<tr>
 			<td><%= pin.name  %></td>
-			<td><%= image_tag (pin.photo) %></td>
+			<td><%= image_tag (pin.image) %></td>
 			<td><%= pin.description %></td>
 			<td><%= link_to 'Ver', pin %></td>
 			<% if user_signed_in? %>
